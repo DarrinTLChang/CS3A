@@ -1,0 +1,102 @@
+"""
+Assignment Two: Temperature Conversions
+Submitted by Darrin Chang
+Submitted: April 19th, 2024
+
+Assignment 2: Additional code is added to this program in order to convert the user's input from Celsius to Celsius,
+Kelvin, or Fahrenheit
+
+Assignment 1: This program demonstrates printing lines of text to the screen
+"""
+
+import sys
+
+def print_header():
+    #prints the title
+    print("STEM Center Temperature Project")
+    print("Ting-Lun Darrin Chang")
+def convert_units(celsius_value, units):
+    #completes the computation converting between the units after checking for whether unit is valid
+    #returns value to main after
+
+    if units not in (0, 1, 2):
+        return None
+
+    if units == 0:
+        return celsius_value , "Celsius"
+    elif units == 1:
+        return celsius_value * 9 / 5 + 32, "Fahrenheit"
+    elif units == 2:
+        return celsius_value + 273.15, "Kelvin"
+
+
+def main():
+    #prints the title from print_header function, takes in the inputs from users and gives to function
+    #convert_units, printing out the final result after while displaying error message if units are invalid
+    print_header()
+
+    celsius_value = float(input("\nWhat is the degree you want to input "))
+    units = int(input("Press 0 to change this to Celsius, 1 for Fahrenheit, 2 for Kelvin "))
+
+    result = convert_units(celsius_value, units)
+
+    if result == None:
+        print('Please enter 0, 1, or 2')
+        sys.exit()
+
+    temperature, unit = result
+
+    final_answer = f"Your final conversion is {temperature} degrees {unit}"
+    print(final_answer)
+
+
+if __name__ == "__main__":
+        main()
+
+
+r"""
+"/Users/darrin/PycharmProjects/Lab 2/.venv/bin/python" /Users/darrin/PycharmProjects/Lab 2/Lab 2.py
+STEM Center Temperature Project
+Ting-Lun Darrin Chang
+
+What is the degree you want to input 10
+Press 0 to change this to Celsius, 1 for Fahrenheit, 2 for Kelvin 0
+Your final conversion is 10.0 degrees Celsius
+
+Second Sample:
+
+"/Users/darrin/PycharmProjects/Lab 2/.venv/bin/python" /Users/darrin/PycharmProjects/Lab 2/Lab 2.py 
+STEM Center Temperature Project
+Ting-Lun Darrin Chang
+
+What is the degree you want to input 10
+Press 0 to change this to Celsius, 1 for Fahrenheit, 2 for Kelvin 1
+Your final conversion is 50.0 degrees Fahrenheit
+
+Process finished with exit code 0
+
+Third Sample:
+
+"/Users/darrin/PycharmProjects/Lab 2/.venv/bin/python" /Users/darrin/PycharmProjects/Lab 2/Lab 2.py 
+STEM Center Temperature Project
+Ting-Lun Darrin Chang
+
+What is the degree you want to input 10
+Press 0 to change this to Celsius, 1 for Fahrenheit, 2 for Kelvin 2
+Your final conversion is 283.15 degrees Kelvin
+
+Process finished with exit code 0
+
+Fourth Sample:
+
+"/Users/darrin/PycharmProjects/Lab 2/.venv/bin/python" /Users/darrin/PycharmProjects/Lab 2/Lab 2.py 
+STEM Center Temperature Project
+Ting-Lun Darrin Chang
+
+What is the degree you want to input 10
+Press 0 to change this to Celsius, 1 for Fahrenheit, 2 for Kelvin 4
+Please enter 0, 1, or 2
+
+Process finished with exit code 0
+
+"""
