@@ -1,0 +1,26 @@
+"""
+Assignment 1: Opening Lines
+Submitted by Ting-Lun Darrin Chang
+Submitted:  April 11, 2024
+
+Assignment 1: This program demonstrates printing lines of text to the screen
+"""
+
+def print_header():
+        print("STEM Center Temperature Project")
+        print("Ting-Lun Darrin Chang")
+
+def main():
+    print_header()
+
+if __name__ == "__main__":
+    main()
+
+r"""
+"/Users/darrin/PycharmProjects/Lab 1/.venv/bin/python" /Users/darrin/PycharmProjects/Lab 1/Lab 1.py 
+STEM Center Temperature Project
+Ting-Lun Darrin Chang
+
+Process finished with exit code 0
+
+"""
