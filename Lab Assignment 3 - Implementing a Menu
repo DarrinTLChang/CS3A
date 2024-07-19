@@ -1,0 +1,260 @@
+"""
+    Assignment Three: Implementing a Menu
+    Submitted by Darrin Chang
+    Submitted: April 26th, 2024
+
+    Assignment 3: Code is added to the program in order to create a menu of functions which the user can choose from
+
+    Assignment 2: Additional code is added to this program in order to convert the user's input from Celsius to Celsius,
+    Kelvin, or Fahrenheit
+
+    Assignment 1: This program demonstrates printing lines of text to the screen
+    """
+
+import sys
+def print_header():
+    # prints the title
+    print("STEM Center Temperature Project")
+    print("Ting-Lun Darrin Chang\n")
+
+def convert_units(celsius_value, units):
+    """
+    completes the computation converting between the units after checking for whether unit is valid, returns
+    value after
+    """
+
+    if units not in (0, 1, 2):
+            return None
+
+    if units == 0:
+            return celsius_value , "Celsius"
+    elif units == 1:
+            return celsius_value * 9 / 5 + 32, "Fahrenheit"
+    elif units == 2:
+            return celsius_value + 273.15, "Kelvin"
+def print_menu():
+    print("Main Menu")
+    print("---------")
+    print("1 - Process a new data file")
+    print("2 - Choose units")
+    print("3 - Edit room filter")
+    print("4 - Show summary statistics")
+    print("5 - Show temperature by date and time")
+    print("6 - Show histogram of temperatures ")
+    print("7 - Quit")
+
+
+def new_file(dataset):
+    """
+    Open a new file
+    """
+    print("New File Function Called\n")
+
+def choose_units():
+    """
+    Chooses unit to be converted into
+    """
+    print("Choose Units Function Called\n")
+
+def change_filter(sensor_list, active_sensors):
+    """
+    changes the filter
+    """
+    print("Change Filter Function Called\n")
+
+def print_summary_statistics(dataset, active_sensors):
+    """
+    prints the summary statistics
+    """
+    print("Summary Statistics Function Called\n")
+
+def print_temp_by_day_time(dataset, active_sensors):
+    """
+    Prints the temperature during the day
+    """
+    print("Print Temp by Day/Time Function Called\n")
+
+def print_histogram(dataset, active_sensors):
+    """
+    prints the historgram for the temperature
+    """
+    print("Print Histogram Function Called\n")
+
+def main():
+    """
+    prints the header, then displays the menu prompting for user input, calling the individual function each time
+    based on input, looping until user inputs 7 to quit. Displaying error messages explaining input error
+    """
+
+    print_header()
+
+    while True:
+        try:
+            print_menu()
+            user_choice = int(input("\nWhat is your choice? "))
+
+        except ValueError:
+            print("*** Please enter a number only ***\n")
+            continue
+
+        if (user_choice == 1):
+            new_file(None)
+        elif (user_choice == 2):
+            choose_units()
+        elif (user_choice == 3):
+            change_filter(None,None)
+        elif (user_choice == 4):
+            print_summary_statistics(None,None)
+        elif (user_choice == 5):
+            print_temp_by_day_time(None,None)
+        elif (user_choice == 6):
+            print_histogram(None,None)
+        elif (user_choice == 7):
+            print("Thank you for using the STEM Center Temperature Project")
+            sys.exit()
+        elif user_choice not in (0,1,2,3,4,5,6,7):
+            print("Invalid Choice, please enter an integer between 1 and 7.  \n")
+            continue
+
+
+if __name__ == "__main__":
+    main()
+
+r"""
+"/Users/darrin/PycharmProjects/lab_assignment 3/.venv/bin/python" /Users/darrin/PycharmProjects/lab_assignment 3/lab_assignment 3.py 
+STEM Center Temperature Project
+Ting-Lun Darrin Chang
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 1
+New File Function Called
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 2
+Choose Units Function Called
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 3
+Change Filter Function Called
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 4
+Summary Statistics Function Called
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 5
+Print Temp by Day/Time Function Called
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 6
+Print Histogram Function Called
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 9
+Invalid Choice, please enter an integer between 1 and 7.  
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? -1
+Invalid Choice, please enter an integer between 1 and 7.  
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? a
+*** Please enter a number only ***
+
+Main Menu
+---------
+1 - Process a new data file
+2 - Choose units
+3 - Edit room filter
+4 - Show summary statistics
+5 - Show temperature by date and time
+6 - Show histogram of temperatures 
+7 - Quit
+
+What is your choice? 7
+Thank you for using the STEM Center Temperature Project
+
+Process finished with exit code 0
+
+"""
