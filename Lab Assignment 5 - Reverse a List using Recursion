@@ -1,0 +1,21 @@
+def reverse_a_list(my_list):
+    """ reverse the order of my_list """
+
+    print(f"The length of my_list is now: {len(my_list)}")
+    length = len(my_list)
+
+    if length == 1:
+        return my_list
+
+    reversed_list = reverse_a_list(my_list[1:])
+    ret_value = reversed_list + [my_list[0]]
+    return ret_value
+
+def main():
+    alphabet = [chr(i) for i in range(97, 123)]
+    print(alphabet)
+    print(reverse_a_list(alphabet))
+    print(alphabet)
+
+if __name__ == "__main__":
+    main()
