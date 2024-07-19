@@ -1,0 +1,195 @@
+
+"""
+    Assignment Eight: Dataset Class
+    Submitted by Darrin Chang
+    Submitted: June 2nd, 2024
+
+    Assignment 8: Code is added to create a class to manage the temperature data
+
+    Assignment 7: This assignment introduces two methods (in detail)
+              print_filter() - prints a list of sensors that are active and inactive
+              change_filter() - allows a user to activate a sensor or deactivate it
+              The change_filter() is initiated through the menu prompt #3 choice.
+              The change_filter() method will print the filter list showing active or
+              inactive states, and it will allow the user to turn a sensor on or off.
+
+    Assignment 6: Bubble sort a sensor list but using recursion. Use a test case
+              as provided (similar to assignment 5, but with reference to the
+              sensor list information from assignment 4).
+
+    Assignment 5: A separate recursion assignment (as another project; see assignment 5)
+
+    Assignment 4: Code is added to create a sensor list and filter list
+
+    Assignment 3: Code is added to the program in order to create a menu of functions which the user can choose from
+
+    Assignment 2: Additional code is added to this program in order to convert the user's input from Celsius to Celsius,
+    Kelvin, or Fahrenheit
+
+    Assignment 1: This program demonstrates printing lines of text to the screen
+"""
+
+class TempDataset:
+    # Class variable to keep track of the number of TempDataset objects created
+    _num_objects = 0
+
+    def __init__(self):
+        # Instance variable to hold the data set
+        self._data_set = None
+        # Instance variable to hold the name of the data set
+        self._name = "Unnamed"
+        # Increment the class variable to keep track of the number of objects created
+        TempDataset._num_objects += 1
+
+    # Property for the name
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, new_name):
+        if not isinstance(new_name, str) or len(new_name) < 3 or len(new_name) > 20:
+            raise ValueError("Name must be a string between 3 and 20 characters.")
+        self._name = new_name
+
+    # Instance method to process a file
+    def process_file(self, filename):
+        return False
+
+    # Instance method to get summary statistics
+    def get_summary_statistics(self, filter_list):
+        if self._data_set is None:
+            return None
+        return (0, 0, 0)
+
+    # Instance method to get average temperature by day and time (stub implementation)
+    def get_avg_temperature_day_time(self, filter_list, day, time):
+        if self._data_set is None:
+            return None
+        return 0
+
+    # Instance method to get the number of temperature samples (stub implementation)
+    def get_num_temps(self, filter_list, lower_bound, upper_bound):
+        if self._data_set is None:
+            return None
+        return 0
+
+    # Instance method to get loaded temperatures (stub implementation)
+    def get_loaded_temps(self):
+        if self._data_set is None:
+            return None
+        return 0
+
+    # Class method to get the number of objects created
+    @classmethod
+    def get_num_objects(cls):
+        return cls._num_objects
+
+
+# Unit Test
+def main():
+    current_set = TempDataset()
+
+    print("First test of get_num_objects: ", end='')
+    if TempDataset.get_num_objects() == 1:
+        print("Success")
+    else:
+        print("Fail")
+
+    second_set = TempDataset()
+
+    print("Second test of get_num_objects: ", end='')
+    if TempDataset.get_num_objects() == 2:
+        print("Success")
+    else:
+        print("Fail")
+
+    print("Testing get_name and set_name: ")
+
+    print("- Default Name:", end='')
+    if current_set.name == "Unnamed":
+        print("Success")
+    else:
+        print("Fail")
+
+    print("- Try setting a name too short: ", end='')
+    try:
+        current_set.name = "to"
+        print("Fail")
+    except ValueError:
+        print("Success")
+
+    print("- Try setting a name too long: ", end='')
+    try:
+        current_set.name = "supercalifragilisticexpialidocious"
+        print("Fail")
+    except ValueError:
+        print("Success")
+
+    print("- Try setting a name just right (Goldilocks): ", end='')
+    try:
+        current_set.name = "New Name"
+        if current_set.name == "New Name":
+            print("Success")
+        else:
+            print("Fail")
+    except ValueError:
+        print("Fail")
+
+    print("- Make sure we didn't touch the other object: ", end='')
+    if second_set.name == "Unnamed":
+        print("Success")
+    else:
+        print("Fail")
+
+    print("Testing get_avg_temperature_day_time: ", end='')
+    if current_set.get_avg_temperature_day_time(None, 0, 0) is None:
+        print("Success")
+    else:
+        print("Fail")
+
+    print("Testing get_num_temps: ", end='')
+    if current_set.get_num_temps(None, 0, 0) is None:
+        print("Success")
+    else:
+        print("Fail")
+
+    print("Testing get_loaded_temps: ", end='')
+    if current_set.get_loaded_temps() is None:
+        print("Success")
+    else:
+        print("Fail")
+
+    print("Testing get_summary_statistics: ", end='')
+    if current_set.get_summary_statistics(None) is None:
+        print("Success")
+    else:
+        print("Fail")
+
+    print("Testing process_file: ", end='')
+    if current_set.process_file(None) is False:
+        print("Success")
+    else:
+        print("Fail")
+
+if __name__ == "__main__":
+    main()
+
+"""
+"/Users/darrin/PycharmProjects/Lab Assignment 8/.venv/bin/python" /Users/darrin/PycharmProjects/Lab Assignment 8/Lab Assignment 8.py 
+First test of get_num_objects: Success
+Second test of get_num_objects: Success
+Testing get_name and set_name: 
+- Default Name:Success
+- Try setting a name too short: Success
+- Try setting a name too long: Success
+- Try setting a name just right (Goldilocks): Success
+- Make sure we didn't touch the other object: Success
+Testing get_avg_temperature_day_time: Success
+Testing get_num_temps: Success
+Testing get_loaded_temps: Success
+Testing get_summary_statistics: Success
+Testing process_file: Success
+
+Process finished with exit code 0
+"""
